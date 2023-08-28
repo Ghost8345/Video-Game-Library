@@ -1,0 +1,64 @@
+<div class="modal fade" id="videoGameForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="videoGameFormLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="videoGameFormLabel">Edit Videogame</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form [formGroup]="videoGameForm" (ngSubmit)="addGame()">
+                <div class="modal-body">
+                    {{videoGameForm.value | json}}
+                    valid:{{videoGameForm.valid| json}}
+                    pristine:{{videoGameForm.pristine | json}}
+
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input formControlName="title" type="text" class="form-control" id="title"
+                            placeholder="Video Game Title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="genre" class="form-label">Genre</label>
+                        <input formControlName="genre" type="text" class="form-control" id="genre"
+                            placeholder="Video Game Genre">
+                    </div>
+                    <div class="mb-3">
+                        <label for="releasedAt" class="form-label">Released At</label>
+                        <input formControlName="releasedAt" type="text" class="form-control" id="releasedAt"
+                            placeholder="Date Released">
+                    </div>
+                    <div class="mb-3">
+                        <label for="photo" class="form-label">Photo Link</label>
+                        <input formControlName="photo" type="text" class="form-control" id="photo"
+                            placeholder="Video Game Poster Link">
+                    </div>
+                    <div class="mb-3">
+                        <label for="rating" class="form-label">Rating</label>
+                        <input formControlName="rating" type="number" class="form-control" id="rating"
+                            placeholder="Video Game Rating" aria-describedby="ratingHelp">
+                        <div id="ratingHelp" class="form-text">Rating should be a number between 1 and 10.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="platforms" class="form-label">Platforms</label>
+                        <select formControlName="platforms" id="platforms" class="form-select" multiple
+                            aria-label="multiple select example" aria-describedby="paltformsHelp">
+                            <option selected>Open this select menu</option>
+                            <option value="PC">PC</option>
+                            <option value="PS5">PS5</option>
+                            <option value="Xbox Series X">Xbox Series X</option>
+                            <option value="PS4">PS4</option>
+                            <option value="Xbox One">Xbox One</option>
+                        </select>
+                        <div id="platformsHelp" class="form-text">Please choose all the valid platforms. Use ctrl and left
+                            mouse click to select more than one option.</div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="videoGameForm.reset()">Close</button>
+                    <button class="btn btn-success" data-bs-dismiss="modal" [disabled]="videoGameForm.invalid">Add Video Game</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

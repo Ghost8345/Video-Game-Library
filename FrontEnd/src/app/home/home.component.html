@@ -1,0 +1,15 @@
+
+<div>
+    <button type="button" class="btn btn-danger float-end" (click)="logout()">Logout</button>
+</div>
+
+
+
+<h1 class="float-center">Video Game Library</h1>
+<app-videogamelist [videoGameList]="videoGameList" (editedGame)="editGame($event)" (deletedGame)="deleteGame($event)"></app-videogamelist>
+
+<button type="button" class="btn btn-success btn-circle btn-xl position-absolute bottom-0 end-0" data-bs-toggle="modal" data-bs-target="#videoGameForm">Add</button>
+<app-addvideogame (addedGame)="addGame($event)"></app-addvideogame>
+
+  
+  
